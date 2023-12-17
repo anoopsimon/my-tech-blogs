@@ -1,28 +1,36 @@
+name: Deploy to GitHub Pages on push
+
 on:
-    push:
-      branches:
-        - main # Change this to your default branch if it's different
+  push:
+    branches: [ main ]
+  # Uncomment and configure below to trigger on pull requests too
+  # pull_request:
+  #   branches: [ main ]
+
 jobs:
-    deploy:
-      runs-on: ubuntu-latest
-  
-      steps:
-        - name: Checkout code
-          uses: actions/checkout@v2
-  
-        - name: Setup Node.js
-          uses: actions/setup-node@v2
-          with:
-            node-version: 18 # Use Node.js 18 here
-  
-        - name: Install dependencies
-          run: npm install
-  
-        - name: Build site
-          run: npm run build
-  
-        - name: Deploy to GitHub Pages
-          uses: peaceiris/actions-gh-pages@v3
-          with:
-            github_token: ${{ secrets.GITHUB_TOKEN }}
-            publish_dir: ./build # Change this if your build output directory is different
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: |
+          yarn install --frozen-lockfile
+
+      - name: Build Docusaurus website
+        run: yarn build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
+          # Change the email and username if you want to customize 
+          # commit author information
+          user_name: github-actions[bot]
+          user_email: 4189828+github-actions[bot]@users.noreply.github.com
+
