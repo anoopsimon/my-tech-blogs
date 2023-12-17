@@ -4,32 +4,29 @@ import styles from './styles.module.css';
 
 const FeatureList = [
   {
-    title: 'Easy to Use',
+    title: 'Easy to Learn Testing Automation',
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        AutoAssure Tech is crafted to simplify your journey into the world of testing automation. With straightforward tutorials and user-friendly guides, you'll be up and running with the latest in testing technology in no time.
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
+    title: 'Dive Deep into Testing Trends',
     Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+       Stay ahead in the fast-evolving landscape of software testing. AutoTest Innovator brings you the latest trends, cutting-edge methodologies, and industry insights. Immerse yourself in content that matters – the future of automated testing.
       </>
     ),
   },
   {
-    title: 'Powered by React',
+    title: 'Empowering Your Testing Infrastructure',
     Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+       Harness the power of advanced testing frameworks and infrastructure. With AutoTest Innovator, gain access to in-depth resources on building robust testing environments, leveraging tools like Selenium, Cypress, and more. We make complex concepts accessible, allowing you to enhance your testing capabilities with ease.
       </>
     ),
   },
