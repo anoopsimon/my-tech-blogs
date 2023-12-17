@@ -16,6 +16,10 @@ jobs:
     - run: npm install
     - run: npm run build
     - name: Deploy
-      run: GIT_USER=anoopsimon USE_SSH=true npm run deploy
+      run:  npm run deploy
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        USE_SSH: true
+        GIT_USER: github-actions
+        CURRENT_BRANCH: main
+        DEPLOYMENT_BRANCH: gh-pages
+        github_token: ${{ secrets.GITHUB_TOKEN }}
