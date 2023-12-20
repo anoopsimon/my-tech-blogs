@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Financial Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 1200px;
+            /* Maximum width of the container */
+            margin: auto;
+            /* Centers the container */
+            padding: 20px;
+            background-color: #ffffff;
+            /* Optional: Background color for the container */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* Optional: Adds a subtle shadow */
+        }
+
+        /* Rest of the CSS for personal info, tables, etc. */
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .personal-info {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            /* Three columns */
+            gap: 20px;
+            /* Space between columns */
+            margin-bottom: 20px;
+            /* Space below the section */
+        }
+
+        .personal-info div {
+            padding: 10px;
+            /* Light background for each item */
+            /* Optional: if you want to round the corners */
+            border-radius: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: Arial, sans-serif;
+            margin-bottom: 20px;
+            /* Space below each table */
+        }
+
+        table thead {
+            display: table;
+            /* Keeps the header in line with the body */
+            width: calc(100% - 17px);
+            /* Adjust based on estimated scrollbar width */
+            table-layout: fixed;
+            background-color: #b35656;
+            /* New color */
+            color: #ffffff;
+            /* White text for contrast */
+        }
+
+        table thead th {
+            position: sticky;
+            top: 0;
+            background-color: #e6e6e6;
+            /* Subtle, professional color */
+            color: #333;
+            /* Darker text for contrast */
+            padding-right: 17px;
+            /* Extra padding to account for the scrollbar */
+            font-weight: bold;
+            /* Make the header text bold */
+        }
+
+        table th,
+        table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        table tbody {
+            display: block;
+            max-height: 200px;
+            /* Adjust based on row height */
+            overflow-y: auto;
+            overflow-x: hidden;
+            /* Prevent horizontal scrollbar */
+        }
+
+        /* Stylish Scrollbar */
+        table tbody::-webkit-scrollbar {
+            width: 10px;
+            /* Scrollbar width */
+        }
+
+
+        table tbody::-webkit-scrollbar-thumb {
+            /* Thumb color */
+            border-radius: 5px;
+            /* Rounded corners for the thumb */
+        }
+
+
+
+        table tr {
+            display: table;
+            width: 100%;
+            table-layout: fixed;
+        }
+
+
+        table tr:hover {
+            background-color: #ddd;
+        }
+
+        .table-heading {
+            font-size: 30px;
+            font-weight: bold;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <div id="personalInfo"></div>
+        <table id="incomesTable"></table>
+        <table id="assetsTable"></table>
+        <table id="liabilitiesTable"></table>
+        <table id="livingExpensesTable"></table>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const jsonData = {
+                "personal": {
+                    "title":"Mr",
+                    "firstname":"John",
+                    "middlename":"Steven",
+                    "lastName":"Doe",
+                    "fullname": "John Steven Doe",
+                    "age": 30,
+                    "occupation": "Software Engineer",
+                    "email":"john.doe@gmail.com",
+                    "address":"14 Splash Way,Mascot,Vic,3450",
+                    "phone":"0451421009",
+                    "gender":"male",
+                },
+                "financia": {
+                    "incomes": [
+                        { "source": "Job", "amount": 5000, "frequency": "Monthly" },
+                        { "source": "Investments", "amount": 2000, "frequency": "Monthly" },
+                        { "source": "Investments", "amount": 2000, "frequency": "Monthly" },
+                        { "source": "Investments", "amount": 2000, "frequency": "Monthly" },
+                        { "source": "Investments", "amount": 2000, "frequency": "Monthly" },
+                        { "source": "Investments", "amount": 2000, "frequency": "Monthly" },
+                        { "source": "Investments", "amount": 2000, "frequency": "Monthly" }
+                    ],
+                    "assets": [
+                        { "type": "House", "value": 300000 },
+                        { "type": "Car", "value": 50000 }
+                    ],
+                    "liabilities": [
+                        { "type": "Mortgage", "amount": 200000 },
+                        { "type": "Car Loan", "amount": 25000 }
+                    ],
+                    "livingexpenses": [
+                        { "type": "Groceries", "amount": 300 },
+                        { "type": "Utilities", "amount": 200 }
+                    ]
+                }
+            }
+
+            const container = document.getElementById('personalInfo');
+
+            const personalInfoHeader = document.createElement('div');
+         personalInfoHeader.className = 'table-heading';
+        personalInfoHeader.textContent = 'Personal Details';
+        container.appendChild(personalInfoHeader);
+
+
+            const personalInfoDiv = document.createElement('div');
+            personalInfoDiv.className = 'personal-info';
+            document.getElementById('personalInfo').appendChild(personalInfoDiv);
+
+            Object.entries(jsonData.personal).forEach(([key, value]) => {
+                const infoDiv = document.createElement('div');
+                let pascalKey = key.replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase())));
+
+                let keyDisplay = `<strong>${key}</strong>`;
+
+                infoDiv.innerHTML = `<span><strong>${pascalKey}:</strong></span> ${value}`;
+                personalInfoDiv.appendChild(infoDiv);
+
+            });
+            // Function to create table from data array
+            function createTable(tableId, dataArray, headingText) {
+
+                const heading = document.createElement('div');
+                heading.className = 'table-heading';
+                heading.textContent = headingText;
+
+
+
+                const table = document.getElementById(tableId);
+                table.parentNode.insertBefore(heading, table);
+
+                if (dataArray.length === 0) return;
+
+                let thead = table.createTHead();
+                let row = thead.insertRow();
+                Object.keys(dataArray[0]).forEach(key => {
+                    let th = document.createElement('th');
+                    let pascalKey = key.replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase())));
+
+                    let text = document.createTextNode(pascalKey);
+                    th.appendChild(text);
+                    row.appendChild(th);
+                });
+
+                let tbody = table.createTBody();
+                dataArray.forEach(item => {
+                    let row = tbody.insertRow();
+                    Object.values(item).forEach(value => {
+                        let cell = row.insertCell();
+                        let text = document.createTextNode(value);
+                        cell.appendChild(text);
+                    });
+                });
+            }
+
+            // Creating tables for financial data
+            createTable('incomesTable', jsonData.financia.incomes, 'Incomes');
+            createTable('assetsTable', jsonData.financia.assets, 'Assets');
+            createTable('liabilitiesTable', jsonData.financia.liabilities, 'Liabilities');
+            createTable('livingExpensesTable', jsonData.financia.livingexpenses, 'Living Expenses');
+        });
+
+    </script>
+</body>
+
+</html>
