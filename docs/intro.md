@@ -2,46 +2,38 @@
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+# About me
 
-Let's discover **Docusaurus in less than 5 minutes**.
+```js
+function aboutMe() {
+  const anoop = {
+    name: "Anoop Simon",
+    experience: "13+ years",
+    expertiseAreas: ["Test Automation", "Cloud Technologies", "API Development", "Web App Development"],
+    languages: ["JavaScript", ".NET Core", "Java", "Python", "C", "Shell", "Powershell", "Groovy"],
+    favoriteWebFramework: "React JS",
+    cloud: ["AWS", "Azure"],
+    ci: ["Jenkins", "Harness", "Azure DevOps", "Docker"],
+    automationFrameworksAndLibraries: ["Selenium", "RestAssured", "Cypress", "Playwright", "Appium"],
+    testFrameworksDevelopedFor: ["Web", "REST", "SOAP", "Mobile", "Mainframe", "Windows Desktop"],
+    testingFrameworks: ["JUnit", "TestNG", "SpecFlow", "Cucumber", "NUnit", "XUnit"],
+    other: ["YAML", "JSON", "XML"],
+    introduction: function() {
+      console.log(`Hello! I'm ${this.name}, with over ${this.experience} in the tech world.`);
+      console.log(`My expertise spans areas like ${this.expertiseAreas.join(", ")}, with a rich palette of languages such as ${this.languages.join(", ")}.`);
+      console.log(`I have a particular fondness for ${this.favoriteWebFramework} in web development.`);
+      console.log(`In the cloud domain, I work with platforms like ${this.cloud.join(" and ")}, and I'm proficient in CI tools like ${this.ci.join(", ")}.`);
+      console.log(`My toolkit includes automation frameworks and libraries like ${this.automationFrameworksAndLibraries.join(", ")},`);
+      console.log(`and I've developed tests for varied frameworks including ${this.testFrameworksDevelopedFor.join(", ")}.`);
+      console.log(`I'm also well-versed in testing frameworks such as ${this.testingFrameworks.join(", ")} and other technologies like ${this.other.join(", ")}.`);
+      console.log("Join me in exploring and mastering the dynamic world of test automation and beyond!");
+    }
+  };
 
-## Getting Started
+  anoop.introduction();
+}
 
-Get started by **creating a new site**.
+aboutMe();
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
 
-### What you'll need
-
-- [Node.js](https://nodejs.org/en/download/) version 18.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
-
-## Generate a new site
-
-Generate a new Docusaurus site using the **classic template**.
-
-The classic template will automatically be added to your project after you run the command:
-
-```bash
-npm init docusaurus@latest my-website classic
 ```
-
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
-
-The command also installs all necessary dependencies you need to run Docusaurus.
-
-## Start your site
-
-Run the development server:
-
-```bash
-cd my-website
-npm run start
-```
-
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
-
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
-
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
