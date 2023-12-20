@@ -6,7 +6,7 @@
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://anoopsimon.github.io/my-tech-blogs/blog"/>
     <subtitle>AutoAssure Tech Blog</subtitle>
-    <icon>https://anoopsimon.github.io/my-tech-blogs/img/favicon.ico</icon>
+    <icon>https://anoopsimon.github.io/my-tech-blogs/img/favicon.png</icon>
     <entry>
         <title type="html"><![CDATA[Welcome]]></title>
         <id>https://anoopsimon.github.io/my-tech-blogs/blog/welcome</id>
