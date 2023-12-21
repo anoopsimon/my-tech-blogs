@@ -19,7 +19,10 @@ const sidebars = {
     {
       type: 'category',
       label: 'Blogs',
-      items: ['blogs/why-test-automation'],
+      items: [
+        'blogs/why-test-automation',
+        'blogs/toolbased-codebased'
+      ],
     },
   ],
   
